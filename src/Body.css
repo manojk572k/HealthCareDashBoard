@@ -7,16 +7,22 @@
   flex: 1;
   padding: 3px 8px;
   background: #ffffff;
-  border-radius: 9px;
-  border: 2px solid grey;
-  overflow: auto;
+  border-radius: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 5px 5px 5px 5px;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .middlecontainer {
   flex: 4;
   padding: 3px 8px;
   background: #ffffff;
-  border-radius: 9px;
-  border: 2px solid grey;
+  border-radius: 20px;
+  margin: 5px 5px 5px 5px;
 
   display: flex;
   flex-direction: column;
@@ -45,15 +51,77 @@
   background: #ffffff;
   border-radius: 9px;
   border: 2px solid grey;
+  overflow: auto;
 }
 
-.searchBar{
- display: flex;
- flex-direction: row;
- gap: 10px;
- align-items: center;
+/* .PatientList{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  
 }
-.listcontainer{
-  text-align: center;
+.ProfilePicture{
+  width: 75px;
+  height: 75px;
 }
+.PatientData{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+} */
+.PatientList {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+}
+
+.ProfilePicture {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.PatientData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.PatientName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #102c3d;
+}
+
+.PatientMeta {
+  margin: 2px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #7b8087;
+}
+
+.PatientMoreBtn {
+  border: none;
+  background: transparent;
+  padding: 4px 6px;
+  font-size: 22px;
+  line-height: 1;
+  color: #102c3d;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.PatientList.active {
+  background: #dff7f3;
+  border-radius: 12px;
+}
+
 /* ///////////// mid section */

@@ -20,34 +20,39 @@ ChartJS.register(
   Filler
 );
 
-function BloodPressureChart() {
-  const data = {
-    labels: ["Oct, 2023", "Nov, 2023", "Dec, 2023", "Jan, 2024", "Feb, 2024", "Mar, 2024"],
+/* ---------------- CHART ---------------- */
+function BloodPressureChart({ data = [] }) {
+  const labels = data.map((item) => `${item.month}, ${item.year}`);
+
+  const systolic = data.map(
+    (item) => item.blood_pressure.systolic.value
+  );
+
+  const diastolic = data.map(
+    (item) => item.blood_pressure.diastolic.value
+  );
+
+  const chartData = {
+    labels,
     datasets: [
       {
         label: "Systolic",
-        data: [120, 115, 160, 111, 149, 157],
+        data: systolic,
         borderColor: "#d864c4",
         backgroundColor: "#d864c4",
         pointBackgroundColor: "#d864c4",
         pointBorderColor: "#ffffff",
         pointBorderWidth: 2,
-        pointRadius: 8,
-        pointHoverRadius: 8,
-        borderWidth: 3,
         tension: 0.4,
       },
       {
         label: "Diastolic",
-        data: [108, 65, 108, 91, 70, 76],
+        data: diastolic,
         borderColor: "#7a61d8",
         backgroundColor: "#7a61d8",
         pointBackgroundColor: "#7a61d8",
         pointBorderColor: "#ffffff",
         pointBorderWidth: 2,
-        pointRadius: 8,
-        pointHoverRadius: 8,
-        borderWidth: 3,
         tension: 0.4,
       },
     ],
@@ -57,64 +62,14 @@ function BloodPressureChart() {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: true,
-      },
-    },
-    layout: {
-      padding: {
-        top: 8,
-        right: 8,
-        bottom: 0,
-        left: 0,
-      },
-    },
-    scales: {
-      x: {
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        border: {
-          display: false,
-        },
-        ticks: {
-          color: "#0f2b3a",
-          font: {
-            size: 14,
-            weight: 500,
-          },
-        },
-      },
-      y: {
-        min: 60,
-        max: 180,
-        ticks: {
-          stepSize: 20,
-          color: "#0f2b3a",
-          font: {
-            size: 14,
-            weight: 500,
-          },
-          padding: 12,
-        },
-        grid: {
-          color: "#c9c3d3",
-          drawBorder: false,
-        },
-        border: {
-          display: false,
-        },
-      },
+      legend: { display: false },
     },
   };
 
-  return <Line data={data} options={options} />;
+  return <Line data={chartData} options={options} />;
 }
 
+/* ---------------- VITAL CARD ---------------- */
 function VitalCard({ variant, icon, title, value, status, trend }) {
   return (
     <div className={`vital-card ${variant}`}>
@@ -137,11 +92,19 @@ function VitalCard({ variant, icon, title, value, status, trend }) {
   );
 }
 
-export default function DiagnosisHistory() {
+/* ---------------- MAIN COMPONENT ---------------- */
+export default function BloodPressure({ data = [] }) {
+  const latest = data[data.length - 1];
+
+  if (!latest) {
+    return <div>No diagnosis data available</div>;
+  }
+
   return (
     <section className="diagnosis-section">
       <h2 className="diagnosis-title">Diagnosis History</h2>
 
+      {/* -------- BLOOD PRESSURE -------- */}
       <div className="bp-card">
         <div className="bp-left">
           <div className="bp-header">
@@ -154,10 +117,11 @@ export default function DiagnosisHistory() {
           </div>
 
           <div className="chart-area">
-            <BloodPressureChart />
+            <BloodPressureChart data={data} />
           </div>
         </div>
 
+        {/* -------- METRICS -------- */}
         <div className="bp-right">
           <div className="metric-block">
             <div className="metric-label-row">
@@ -165,11 +129,13 @@ export default function DiagnosisHistory() {
               <p className="metric-label">Systolic</p>
             </div>
 
-            <h3 className="metric-value">160</h3>
+            <h3 className="metric-value">
+              {latest.blood_pressure.systolic.value}
+            </h3>
 
             <div className="metric-note">
               <ArrowUp size={16} />
-              <span>Higher than Average</span>
+              <span>{latest.blood_pressure.systolic.levels}</span>
             </div>
           </div>
 
@@ -181,39 +147,42 @@ export default function DiagnosisHistory() {
               <p className="metric-label">Diastolic</p>
             </div>
 
-            <h3 className="metric-value">78</h3>
+            <h3 className="metric-value">
+              {latest.blood_pressure.diastolic.value}
+            </h3>
 
             <div className="metric-note">
               <ArrowDown size={16} />
-              <span>Lower than Average</span>
+              <span>{latest.blood_pressure.diastolic.levels}</span>
             </div>
           </div>
         </div>
       </div>
 
+      {/* -------- VITALS -------- */}
       <div className="vitals-row">
         <VitalCard
           variant="respiratory"
           icon="https://cdn-icons-png.flaticon.com/512/3019/3019989.png"
           title="Respiratory Rate"
-          value="20 bpm"
-          status="Normal"
+          value={`${latest.respiratory_rate.value} bpm`}
+          status={latest.respiratory_rate.levels}
         />
 
         <VitalCard
           variant="temperature"
           icon="https://cdn-icons-png.flaticon.com/512/1684/1684375.png"
           title="Temperature"
-          value="98.6°F"
-          status="Normal"
+          value={`${latest.temperature.value}°F`}
+          status={latest.temperature.levels}
         />
 
         <VitalCard
           variant="heart"
           icon="https://cdn-icons-png.flaticon.com/512/833/833472.png"
           title="Heart Rate"
-          value="78 bpm"
-          status="Lower than Average"
+          value={`${latest.heart_rate.value} bpm`}
+          status={latest.heart_rate.levels}
           trend="down"
         />
       </div>
