@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+.diagnosis-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.diagnosis-title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #102c3d;
+}
+
+.bp-card {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  background: #f3eefb;
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.bp-left {
+  min-width: 0;
+}
+
+.bp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.bp-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #102c3d;
+}
+
+.range-btn {
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #102c3d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.chart-area {
+  height: 110px;
+}
+
+.bp-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 180px;
+}
+
+.metric-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.metric-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.metric-dot.pink {
+  background: #d864c4;
+}
+
+.metric-dot.purple {
+  background: #7a61d8;
+}
+
+.metric-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #102c3d;
+}
+
+.metric-value {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  color: #102c3d;
+}
+
+.metric-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #102c3d;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bp-right hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #d4cedd;
+  margin: 16px 0;
+}
+
+.vitals-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.vital-card {
+  border-radius: 18px;
+  padding: 14px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.vital-card.respiratory {
+  background: #e0f1f8;
+}
+
+.vital-card.temperature {
+  background: #f6e2e6;
+}
+
+.vital-card.heart {
+  background: #f4deea;
+}
+
+.vital-icon-wrap {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.vital-icon-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.vital-title {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #102c3d;
+}
+
+.vital-value {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 800;
+  color: #082c3c;
+}
+
+.vital-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: #102c3d;
+}
+
+.trend-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
