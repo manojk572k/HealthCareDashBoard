@@ -1,16 +1,45 @@
-# React + Vite
+# Patient Dashboard (Frontend Skills Test)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a single-page patient dashboard built based on the provided Adobe XD design.
 
-Currently, two official plugins are available:
+The application uses the provided patient data API and displays information only for **Jessica Taylor**, as instructed in the assessment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
+- Converted the Adobe XD design into a React-based single-page application
+- Integrated patient data using a GET API request
+- Displayed only Jessica Taylor’s data
+- Implemented the blood pressure chart
+- Built with reusable React components
+- Focused only on required UI and functionality from the instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
+- React
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Chart.js
+- Lucide React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## How to Run This Project
+
+### 1. Extract the ZIP file
+Download and extract the submitted ZIP file to a local folder.
+
+### 2. Open the project folder in a code editor
+Open the extracted folder in **Visual Studio Code** or any code editor.
+
+### 3. Install dependencies
+Open the terminal inside the project folder and run:
+
+```bash
+npm install
+
+next start development server
+npm run dev 

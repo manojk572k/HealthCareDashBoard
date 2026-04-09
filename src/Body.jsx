@@ -3,9 +3,9 @@ import "./Body.css"
 import BloodPressure from "./BloodPressure"
 import { MoreHorizontal } from "lucide-react";
 import DiagnosticList from "./DiagnosticList";
-import PatientDetails from "./PatientDetails";
 import PatientsList from "./PatientsList";
-import { PatientLabTests } from "./PatientDetails";
+
+import PatientPanel, { PatientLabTests } from "./PatientDetails";
 
 function Body() {
     
@@ -14,10 +14,7 @@ function Body() {
   const[error,setError]=useState("") 
   const[search,setSearch]=useState("")
 
-  /////when a user is going to click any patient name it should display the whole patients data in the window//////
   const [selectedPatient, setSelectedPatient] = useState(null)
-
-  /////that is the goal/////
 
   useEffect(()=>{
   const fetchUsers =async()=>{
@@ -37,7 +34,7 @@ function Body() {
     }   
     const data = await res.json()
       setUser(data)
-      setSelectedPatient(data[0])
+      setSelectedPatient(data[3])
   }  
   catch(error){
       setError(error.message)
@@ -63,6 +60,7 @@ function Body() {
           className="PatientList"
           onClick={() => setSelectedPatient(User)}
       >
+
       <img
       src={User.profile_picture}
       className="ProfilePicture"
@@ -108,8 +106,8 @@ function Body() {
          </div>
       </div>
       <div className='leftcontainer'>
-        <PatientDetails data={selectedPatient}/>
-        <PatientLabTests data={selectedPatient?.diagnostic_list || []}/>
+       <PatientPanel data={selectedPatient}/>
+         <PatientLabTests data={selectedPatient?.lab_results || []}/>
       </div>
     </div>
   )

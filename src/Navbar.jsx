@@ -58,7 +58,7 @@ const navItems = [
       <div className="navbar__actions">
         <div className="profile-box">
           <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
+            src="https://thumbs.dreamstime.com/b/young-doctor-hospital-medical-medicine-health-care-clinic-office-portrait-glasses-man-stethoscope-specialist-his-269615308.jpg"
             alt="Doctor profile"
             className="profile-image"
           />

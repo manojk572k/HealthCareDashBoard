@@ -171,21 +171,21 @@
 }
 
 .vital-icon-img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .vital-title {
   margin: 0 0 6px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
   color: #102c3d;
 }
 
 .vital-value {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 30px;
   line-height: 1;
   font-weight: 800;
   color: #082c3c;
@@ -196,9 +196,9 @@
   align-items: center;
   gap: 6px;
   margin-top: auto;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
-  color: #102c3d;
+  color: #102c3dac;
 }
 
 .trend-icon {

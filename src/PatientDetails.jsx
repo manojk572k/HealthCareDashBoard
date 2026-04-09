@@ -65,8 +65,6 @@ export default function PatientPanel({data}) {
   );
 }
 
-
-
 export function PatientLabTests({ data = [] }) {
   return (
     <div>      {/* BOTTOM (1 PART) */}

@@ -1,14 +1,12 @@
 .patient-panel {
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 12px;
   min-height: 0;
 }
 
-/* 2:1 ratio */
 .panel-top {
-  flex: 2;
+  flex: 1;
   min-height: 0;
   background: #ffffff;
   border-radius: 18px;
@@ -29,7 +27,6 @@
   overflow: hidden;
 }
 
-/* TOP CONTENT */
 .profile-img {
   width: 140px;
   height: 140px;
@@ -86,7 +83,7 @@
 }
 
 .show-btn {
-  margin-top: auto;
+  margin-top: 16px;   /* changed from auto */
   height: 42px;
   border-radius: 999px;
   border: none;
@@ -94,9 +91,9 @@
   font-weight: 700;
   cursor: pointer;
   color: #102c3d;
+  flex-shrink: 0;
 }
 
-/* BOTTOM */
 .lab-title {
   font-size: 18px;
   font-weight: 800;
